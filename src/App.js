@@ -1,11 +1,10 @@
 import CoursesPage from "./pages/CoursesPage/CoursesPage";
-
-
+import AppRouter from "./router/AppRouter";
 
 function App() {
   return (
     <div>
-      <CoursesPage />
+      <AppRouter/>
     </div>
   );
 }

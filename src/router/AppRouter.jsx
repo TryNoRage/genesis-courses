@@ -10,7 +10,7 @@ function AppRouter() {
       <Routes>
         <Route path="/" element={<CoursesPage />} />
         <Route path="/course">
-            <Route path="/:id" element={<CoursePage/>} />
+            <Route path=":id" element={<CoursePage/>} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
