@@ -5,6 +5,7 @@ import { getToken } from "../../api/getToken";
 import { getCourses } from "../../api/getCourses";
 import { useEffect, useState } from "react";
 import { Pagination } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const itemsPerPage = 10;
 
@@ -12,6 +13,7 @@ function CoursesPage() {
   const [token, setToken] = useState("");
   const [courses, setCourses] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
   const pages = Math.ceil(courses.length / itemsPerPage);
 
@@ -20,6 +22,7 @@ function CoursesPage() {
     window.scrollTo(0, 0);
   };
 
+  const handleClick = (id) => navigate(`/course/${id}`);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -39,9 +42,10 @@ function CoursesPage() {
     <>
       <main>
         {visibleItems.map((course) => (
-          <CourseItem key={course.id} course={course} />
+          <CourseItem handleChildClick={handleClick} key={course.id} course={course}/>
         ))}
         <Pagination count={pages} page={currentPage} onChange={handleChange} />
+        
       </main>
     </>
   );

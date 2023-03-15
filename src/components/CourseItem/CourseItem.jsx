@@ -3,10 +3,10 @@ import React from "react";
 import ListOfSkills from "../ListOfSkills/ListOfSkills";
 import "./CourseItem.css";
 
-function CourseItem({course}) {
+function CourseItem({course,handleChildClick}) {
   return (
     <>
-      <Card id="wrapper">
+      <Card id="wrapper" onClick={()=>handleChildClick(course.id)} >
         <div id="content">
           <img
             src={`${course.previewImageLink}/cover.webp`}
