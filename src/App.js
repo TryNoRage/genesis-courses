@@ -1,5 +1,7 @@
 import CoursesPage from "./pages/CoursesPage/CoursesPage";
 
+
+
 function App() {
   return (
     <div>

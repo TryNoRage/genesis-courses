@@ -3,24 +3,26 @@ import React from "react";
 import ListOfSkills from "../ListOfSkills/ListOfSkills";
 import "./CourseItem.css";
 
-function CourseItem() {
+function CourseItem({course}) {
   return (
-    <Card id="wrapper">
-      <div id="content">
-        <img
-          src="https://wisey.app/assets/images/web/course-covers/lack-of-motivation-how-to-overcome-it/cover.webp"
-          alt="test"
-          loading="lazy"
-        />
-        <div id="info">
-          <h1>Title</h1>
-          <p> Desription</p>
-          <p>3.5</p>
-          <p>Lessons:5</p>
+    <>
+      <Card id="wrapper">
+        <div id="content">
+          <img
+            src={`${course.previewImageLink}/cover.webp`}
+            alt="test"
+            loading="lazy"
+          />
+          <div id="info">
+            <h1>{course.title}</h1>
+            <p> {course.description}</p>
+            <p>Rating: {course.rating}</p>
+            <p>Lessons: {course.lessonsCount}</p>
+          </div>
         </div>
-      </div>
-      <ListOfSkills />
-    </Card>
+         <ListOfSkills skills={course.meta.skills || []}/>
+      </Card>
+    </>
   );
 }
 
