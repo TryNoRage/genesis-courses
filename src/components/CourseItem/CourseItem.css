@@ -1,0 +1,21 @@
+#wrapper {
+    width: 700px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+}
+
+#content{
+    display: flex;
+}
+
+img {
+    height: 200px;
+    width: auto;
+}
