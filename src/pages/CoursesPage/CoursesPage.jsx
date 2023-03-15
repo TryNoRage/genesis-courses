@@ -6,16 +6,16 @@ import { getCourses } from "../../api/getCourses";
 import { useEffect, useState } from "react";
 import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useFetch } from "../../customHooks/useFetch";
+import paginationHelper from "../../helper/paginationHelper";
 
-const itemsPerPage = 10;
+const ITEMS_PER_PAGE = 10;
 
 function CoursesPage() {
-  const [token, setToken] = useState("");
-  const [courses, setCourses] = useState([]);
+  const [courses, loading] = useFetch();
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
-
-  const pages = Math.ceil(courses.length / itemsPerPage);
+  const pages = Math.ceil(courses.length / ITEMS_PER_PAGE);
 
   const handleChange = (event, value) => {
     setCurrentPage(value);
@@ -24,28 +24,19 @@ function CoursesPage() {
 
   const handleClick = (id) => navigate(`/course/${id}`);
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const visibleItems = courses.slice(startIndex, endIndex);
-
-  useEffect(() => {
-    getToken().then((res) => setToken(res.token));
-  }, []);
-
-  useEffect(() => {
-    if (token) {
-      getCourses(token).then((res) => setCourses(res.courses));
-    }
-  }, [token]);
+  const listOfCourses = paginationHelper(currentPage,courses,ITEMS_PER_PAGE).map((course) => (
+    <CourseItem
+      handleChildClick={handleClick}
+      key={course.id}
+      course={course}
+    />
+  ));
 
   return (
     <>
       <main>
-        {visibleItems.map((course) => (
-          <CourseItem handleChildClick={handleClick} key={course.id} course={course}/>
-        ))}
+        { listOfCourses}
         <Pagination count={pages} page={currentPage} onChange={handleChange} />
-        
       </main>
     </>
   );
