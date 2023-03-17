@@ -1,15 +1,23 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import VideoHLS from "../../components/VideoHLS/VideoHLS";
 import { useParams } from "react-router-dom";
 import useFetch from "../../customHooks/useFetch";
+import CourseAccordion from "../../components/CourseAccordion/CourseAccordion";
 
 function CoursePage() {
   const { id } = useParams();
-  const [course, isLoading ]  = useFetch(id);
- 
+  const [course, isLoading] = useFetch(id);
+
   return (
     <>
-      {isLoading? "rre3" : <VideoHLS videoLink={course.meta.courseVideoPreview.link} />}
+      {isLoading ? (
+        "Loading"
+      ) : (
+        <div>
+          <VideoHLS videoLink={course.meta.courseVideoPreview.link} />
+          <CourseAccordion lessons={course.lessons} />
+        </div>
+      )}
     </>
   );
 }
