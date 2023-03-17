@@ -3,7 +3,7 @@ import { getToken } from "../api/getToken";
 import { getCourse } from "../api/getCourse";
 
 export const useFetch = (idCourse = "") => {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState("");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 

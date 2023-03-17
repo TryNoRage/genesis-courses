@@ -1,4 +1,6 @@
 #banner{ 
-    margin: 0;
-    padding: 0;
+    background-color:#17252A;
+    height: 75px;
+    display: flex;
+    justify-content: center;
 }

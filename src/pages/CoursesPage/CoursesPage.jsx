@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CourseItem from "../../components/CourseItem/CourseItem";
 import "./CoursesPage.css";
-import { getToken } from "../../api/getToken";
-import { getCourses } from "../../api/getCourses";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useFetch } from "../../customHooks/useFetch";
@@ -24,7 +22,11 @@ function CoursesPage() {
 
   const handleClick = (id) => navigate(`/course/${id}`);
 
-  const listOfCourses = paginationHelper(currentPage,courses,ITEMS_PER_PAGE).map((course) => (
+  const listOfCourses = paginationHelper(
+    currentPage,
+    courses,
+    ITEMS_PER_PAGE
+  ).map((course) => (
     <CourseItem
       handleChildClick={handleClick}
       key={course.id}
@@ -35,7 +37,7 @@ function CoursesPage() {
   return (
     <>
       <main>
-        { listOfCourses}
+        {listOfCourses}
         <Pagination count={pages} page={currentPage} onChange={handleChange} />
       </main>
     </>
