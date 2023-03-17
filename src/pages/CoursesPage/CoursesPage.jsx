@@ -4,7 +4,7 @@ import "./CoursesPage.css";
 import { useState } from "react";
 import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useFetch } from "../../customHooks/useFetch";
+import  useFetch  from "../../customHooks/useFetch";
 import paginationHelper from "../../helper/paginationHelper";
 
 const ITEMS_PER_PAGE = 10;
