@@ -1,0 +1,10 @@
+#course-information-wrapper {
+    display: flex;
+    width: 1200px;
+}
+
+#course-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

@@ -16,7 +16,6 @@ function CourseAccordion({ lessons }) {
         <Accordion
           key={lesson.id}
           disabled={lesson.status === "locked"}
-          sx={{ width: "1000px" }}
         >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h6" component="h5">{lesson.title}</Typography>

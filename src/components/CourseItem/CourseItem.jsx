@@ -1,9 +1,10 @@
 import { Card } from "@mui/material";
-import React from "react";
+import React, {useRef} from "react";
 import ListOfSkills from "../ListOfSkills/ListOfSkills";
 import "./CourseItem.css";
 
 function CourseItem({course,handleChildClick}) {
+
   return (
     <>
       <Card id="wrapper" onClick={()=>handleChildClick(course.id)} >

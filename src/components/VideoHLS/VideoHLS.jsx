@@ -30,13 +30,13 @@ function VideoHLS({ videoLink, previewImage, videoTitle, videoId }) {
   }
 
   return (
-    <video
-      ref={handleVideoRef}
-      controls
-      poster={previewImage}
-      title={videoTitle}
-      onTimeUpdate={handleProgressChange}
-    />
+      <video
+        ref={handleVideoRef}
+        controls
+        poster={previewImage}
+        title={videoTitle}
+        onTimeUpdate={handleProgressChange}
+      />
   );
 }
 

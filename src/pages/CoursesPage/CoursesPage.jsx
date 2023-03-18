@@ -4,13 +4,13 @@ import "./CoursesPage.css";
 import { useState } from "react";
 import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import  useFetch  from "../../customHooks/useFetch";
+import useFetch from "../../customHooks/useFetch";
 import paginationHelper from "../../helper/paginationHelper";
 
 const ITEMS_PER_PAGE = 10;
 
 function CoursesPage() {
-  const [courses, loading] = useFetch();
+  const [courses, isLoading] = useFetch();
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
   const pages = Math.ceil(courses.length / ITEMS_PER_PAGE);
@@ -36,10 +36,18 @@ function CoursesPage() {
 
   return (
     <>
-      <main>
-        {listOfCourses}
-        <Pagination count={pages} page={currentPage} onChange={handleChange} />
-      </main>
+      {isLoading ? (
+        "Loading"
+      ) : (
+        <main>
+          {listOfCourses}
+          <Pagination
+            count={pages}
+            page={currentPage}
+            onChange={handleChange}
+          />
+        </main>
+      )}
     </>
   );
 }
