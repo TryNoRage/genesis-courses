@@ -1,4 +1,9 @@
-#course-accordion{
-    width: 1200px;
+#course-accordion {
+    width: 1240px;
     padding: 20px;
+}
+
+#accordion-img{
+    width: 700px;
+    height: auto;
 }

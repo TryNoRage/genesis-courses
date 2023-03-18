@@ -24,9 +24,7 @@ const useFetch = (idCourse = "") => {
     }
   }, [token]);
 
-  if (isError) {
-    return <NotFoundPage/>
-  }
+
 
   return [data, isLoading];
 };

@@ -1,6 +1,7 @@
 #course-information-wrapper {
     display: flex;
     width: 1200px;
+    padding: 20px;
 }
 
 #course-info {

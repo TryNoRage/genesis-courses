@@ -5,7 +5,7 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import "./CourseAccordion.css"
+import "./CourseAccordion.css";
 import React from "react";
 import VideoHLS from "../VideoHLS/VideoHLS";
 
@@ -13,24 +13,38 @@ function CourseAccordion({ lessons }) {
   return (
     <div id="course-accordion">
       {lessons.map((lesson) => (
-        <Accordion
-          key={lesson.id}
-          disabled={lesson.status === "locked"}
-        >
+        <Accordion key={lesson.id} disabled={lesson.status === "locked"}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h6" component="h5">{lesson.title}</Typography>
+            <Typography variant="h6" component="h5">
+              {lesson.title}
+            </Typography>
             <Typography sx={{ flexGrow: 1 }} />
             <Typography>
-              Lesson {lesson.order} | Duration: {Math.floor(lesson.duration / 60)} min
+              Lesson {lesson.order} | Duration:{" "}
+              {Math.floor(lesson.duration / 60)} min
             </Typography>
           </AccordionSummary>
-          <AccordionDetails sx={{display:"flex", alignItems:"center",justifyContent:"center"}}>
-            <VideoHLS
-              videoLink={lesson.link}
-              previewImage={`${lesson.previewImageLink}/lesson-${lesson.order}.webp`}
-              videoTitle={lesson.title}
-              videoId={lesson.id}
-            />
+          <AccordionDetails
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {lesson.type === "quiz_simulator" ? (
+              <img
+                src={`${lesson.previewImageLink}/lesson-${lesson.order}.webp`}
+                alt={lesson.title}
+                id="accordion-img"
+              />
+            ) : (
+              <VideoHLS
+                videoLink={lesson.link}
+                previewImage={`${lesson.previewImageLink}/lesson-${lesson.order}.webp`}
+                videoTitle={lesson.title}
+                videoId={lesson.id}
+              />
+            )}
           </AccordionDetails>
         </Accordion>
       ))}

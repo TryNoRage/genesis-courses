@@ -28,7 +28,6 @@ function VideoOnHover({ videoLink, previewImage, videoTitle }) {
 
   return (
     <div
-        className="wer"
       ref={wrapperRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

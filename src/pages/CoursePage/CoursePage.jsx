@@ -1,5 +1,5 @@
 import React from "react";
-import "./CoursePage.css"
+import "./CoursePage.css";
 import { useParams } from "react-router-dom";
 import useFetch from "../../customHooks/useFetch";
 import CourseAccordion from "../../components/CourseAccordion/CourseAccordion";
@@ -13,10 +13,10 @@ function CoursePage() {
   return (
     <>
       {isLoading ? (
-        <LoadingIndicator/>
+        <LoadingIndicator />
       ) : (
         <article id="course-page-wrapper">
-          <CourseInformation course={course}/>
+          <CourseInformation course={course} />
           <CourseAccordion lessons={course.lessons} />
         </article>
       )}
