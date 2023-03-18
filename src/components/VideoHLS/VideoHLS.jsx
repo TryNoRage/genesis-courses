@@ -31,6 +31,7 @@ function VideoHLS({ videoLink, previewImage, videoTitle, videoId }) {
 
   return (
       <video
+        id="videoHSL"
         ref={handleVideoRef}
         controls
         poster={previewImage}

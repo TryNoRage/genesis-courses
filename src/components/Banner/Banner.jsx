@@ -4,7 +4,7 @@ import "./Banner.css"
 
 function Banner() {
   return (
-    <AppBar position="static" id="banner" sx={{}}>
+    <AppBar position="sticky" id="banner" >
     <Toolbar>
       <Typography variant="h6" component="div">
         Genesis
