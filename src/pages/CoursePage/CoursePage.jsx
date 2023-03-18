@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../customHooks/useFetch";
 import CourseAccordion from "../../components/CourseAccordion/CourseAccordion";
 import CourseInformation from "../../components/CourseInformation/CourseInformation";
+import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
 
 function CoursePage() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ function CoursePage() {
   return (
     <>
       {isLoading ? (
-        "Loading"
+        <LoadingIndicator/>
       ) : (
         <article id="course-page-wrapper">
           <CourseInformation course={course}/>

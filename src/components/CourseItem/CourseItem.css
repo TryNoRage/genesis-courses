@@ -7,13 +7,21 @@
     margin: 20px;
 }
 
-#info {
+#head-content{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#content{
+
+#body-content {
     display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+#body-content > p {
+    max-width: 150px;
 }
 
 img {

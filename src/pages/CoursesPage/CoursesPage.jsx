@@ -6,6 +6,7 @@ import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../customHooks/useFetch";
 import paginationHelper from "../../helper/paginationHelper";
+import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -37,7 +38,7 @@ function CoursesPage() {
   return (
     <>
       {isLoading ? (
-        "Loading"
+        <LoadingIndicator/>
       ) : (
         <main>
           {listOfCourses}
