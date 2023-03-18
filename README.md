@@ -1,70 +1,41 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Courses Genesis
+This project was made for a test task for the company "Genesis". The web project is a SPA (single-page application) platform for learning. In which there were such tasks as (completed ones are marked with a tick):
+* [x]  The last 10 courses must be displayed in the course feed. The course includes:
+    *  [x]  Photo of the course 
+    *  [x] Course title
+    * [x] Number of lessons, skills and rating
+    * [x] Display 10 courses on the page and add pagination
+    * [x] Additionally:
+        * [x] Play video without sound when hovering   
+* [x] The course view page displays the first video from the course, details about the course, and a list of lessons:
+    * [x] When clicking on a lesson (if it is not blocked), the current video will open for viewing
+    * [x] Video and course lesson progress must be saved (save locally)
+    * [x] If the lesson is blocked, show it to the user
+    * [ ] Additionally:
+        * [ ] Make a functional picture in picture (without third-party libraries)
+        * [ ] Add video playback speed change via keyboard (without third-party libraries)
+* [ ] Additional tasks:
+    * [ ] Work through errors from the API (network error, ...)
+    * [ ] Adaptive for the mobile version 
+    * [ ] Video loading animation
+    * [ ] The code is covered by tests
+# Installation
+1. Clone the repository: `https://github.com/TryNoRage/genesis-courses.git`
+2. Navigate to the project directory: `cd genesis-courses`
+3. Install dependencies: `npm install`
+# Usage
+1. Start the development server: `npm start`
+2. Open `http://localhost:3000` to view it in the browser.
+# Dependencies
+* React
+* MUI
+* React Router Dom
+* Hls.js
+# Architecture
+To begin with, I wanted to use a modular architecture, but I realized that it was too cumbersome for such a project, so I abandoned it. I divided the project into several folders for different functionality:
+* `api`: In this folder, I implemented the fetch functions for token requests and courses, and also made common values into constants for future convenience if refactoring is needed
+* `components`: This folder contains reusable UI components that can be used in the application. Lists, accordions, banners, etc. were implemented here.
+* `customHook`: This folder contains custom hooks that can be reused across components. There are the  hook that connects our work with api and gets data about courses in json format and a hook that allows you to divide the array for pagination.
+* `helpers`: This folder contains utility functions that may be used across the application. Here are the functions for generating a key for rendering lists if there is no suitable unique indicator and converting seconds into minutes for correct display for the user.
+* `pages`:  This folder stores pages for display through the react router, they contain all the components, custom hooks and helpers.
+* `router`: This folder contains a file that specifies the routes and components that should be displayed along these routes using the React Router.

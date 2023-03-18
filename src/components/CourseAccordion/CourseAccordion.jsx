@@ -8,6 +8,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./CourseAccordion.css";
 import React from "react";
 import VideoHLS from "../VideoHLS/VideoHLS";
+import secondsToMinutes from "../../helper/secondsToMinutes";
 
 function CourseAccordion({ lessons }) {
   return (
@@ -21,7 +22,7 @@ function CourseAccordion({ lessons }) {
             <Typography sx={{ flexGrow: 1 }} />
             <Typography>
               Lesson {lesson.order} | Duration:{" "}
-              {Math.floor(lesson.duration / 60)} min
+              {secondsToMinutes(lesson.duration)} min
             </Typography>
           </AccordionSummary>
           <AccordionDetails

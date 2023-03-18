@@ -3,6 +3,7 @@ import VideoHLS from "../VideoHLS/VideoHLS";
 import React from "react";
 import "./CourseInformation.css"
 import ListOfSkills from "../ListOfSkills/ListOfSkills";
+import secondsToMinutes from "../../helper/secondsToMinutes";
 
 function CourseInformation({ course }) {
   return (
@@ -16,7 +17,7 @@ function CourseInformation({ course }) {
       <div id="course-info">
         <h1>{course.title}</h1>
         <h3>{course.description}</h3>
-        <h3>Duration: {Math.floor(course.duration / 60)} min</h3>
+        <h3>Duration: {secondsToMinutes(course.duration)} min</h3>
         <h3>Skills you will get: {<ListOfSkills skills={course.meta.skills}/>}</h3>
       </div>
     </Card>
