@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import VideoHLS from "../../components/VideoHLS/VideoHLS";
 import { useParams } from "react-router-dom";
 import useFetch from "../../customHooks/useFetch";
@@ -14,7 +14,12 @@ function CoursePage() {
         "Loading"
       ) : (
         <div>
-          <VideoHLS videoLink={course.meta.courseVideoPreview.link} />
+          <VideoHLS
+            videoLink={course.meta.courseVideoPreview.link}
+            previewImage={`${course.meta.courseVideoPreview.previewImageLink}/preview.webp`}
+            videoTitle={course.title}
+            videoId={course.id}
+          />
           <CourseAccordion lessons={course.lessons} />
         </div>
       )}

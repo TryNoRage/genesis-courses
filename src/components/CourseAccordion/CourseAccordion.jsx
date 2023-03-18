@@ -5,25 +5,37 @@ import {
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import "./CourseAccordion.css"
 import React from "react";
 import VideoHLS from "../VideoHLS/VideoHLS";
 
-function CourseAccordion({ lessons}) {
+function CourseAccordion({ lessons }) {
   return (
-    <>
+    <div id="course-accordion">
       {lessons.map((lesson) => (
-        <Accordion key={lesson.id} disabled={lesson.status === "locked" ? true : false }> 
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-          >
-            <Typography>{lesson.title}</Typography>
+        <Accordion
+          key={lesson.id}
+          disabled={lesson.status === "locked"}
+          sx={{ width: "1000px" }}
+        >
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography variant="h6" component="h5">{lesson.title}</Typography>
+            <Typography sx={{ flexGrow: 1 }} />
+            <Typography>
+              Lesson {lesson.order} | Duration: {Math.floor(lesson.duration / 60)} min
+            </Typography>
           </AccordionSummary>
-          <AccordionDetails>
-            <VideoHLS videoLink={lesson.link}/>
+          <AccordionDetails sx={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+            <VideoHLS
+              videoLink={lesson.link}
+              previewImage={`${lesson.previewImageLink}/lesson-${lesson.order}.webp`}
+              videoTitle={lesson.title}
+              videoId={lesson.id}
+            />
           </AccordionDetails>
         </Accordion>
       ))}
-    </>
+    </div>
   );
 }
 
