@@ -26,6 +26,7 @@ function CourseItem({ course, handleChildClick }) {
           <p>Lessons: {course.lessonsCount}</p>
         </div>
         <ListOfSkills skills={course.meta.skills || []} />
+        {/*Mistake prevention in the absence of skills */}
       </Card>
     </>
   );

@@ -26,6 +26,7 @@ function CoursesPage() {
       course={course}
     />
   ));
+  {/* return 10 courses for render*/}
 
   return (
     <>

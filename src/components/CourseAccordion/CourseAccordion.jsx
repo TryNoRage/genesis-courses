@@ -47,6 +47,7 @@ function CourseAccordion({ lessons }) {
                 videoTitle={lesson.title}
                 videoId={lesson.id}
               />
+            /*Depending on the type of lesson, either an image or a video will be displayed.*/
             )}
           
           </AccordionDetails>

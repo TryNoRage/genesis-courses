@@ -9,12 +9,8 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 function CoursePage() {
   const { id } = useParams();
-  const [course, isLoading, isError] = useFetch(id);
+  const [course, isLoading] = useFetch(id);
 
-
-  if (isError) {
-    return <NotFoundPage />;
-  }
 
   return (
     <>
