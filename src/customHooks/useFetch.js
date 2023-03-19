@@ -13,7 +13,7 @@ const useFetch = (idCourse = "") => {
   }, []);
 
   useEffect(() => {
-    if (token) {
+    if (token) { 
       getCourse(token, idCourse)
         .then((res) => {
           setData(idCourse ? res : res.courses);
