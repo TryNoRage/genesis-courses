@@ -3,3 +3,4 @@ function generateKey(pre) {
 }
 
 export default generateKey;
+
