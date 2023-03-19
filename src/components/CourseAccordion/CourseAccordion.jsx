@@ -10,11 +10,13 @@ import React from "react";
 import VideoHLS from "../VideoHLS/VideoHLS";
 import secondsToMinutes from "../../helper/secondsToMinutes";
 
+
 function CourseAccordion({ lessons }) {
+
   return (
     <div id="course-accordion">
       {lessons.map((lesson) => (
-        <Accordion key={lesson.id} disabled={lesson.status === "locked"}>
+        <Accordion key={lesson.id} disabled={lesson.status === "locked"} >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h6" component="h5">
               {lesson.title}
@@ -46,6 +48,7 @@ function CourseAccordion({ lessons }) {
                 videoId={lesson.id}
               />
             )}
+          
           </AccordionDetails>
         </Accordion>
       ))}

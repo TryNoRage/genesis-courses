@@ -12,8 +12,8 @@ This project was made for a test task for the company "Genesis". The web project
     * [x] Video and course lesson progress must be saved (save locally)
     * [x] If the lesson is blocked, show it to the user
     * [ ] Additionally:
-        * [ ] Make a functional picture in picture (without third-party libraries)
-        * [ ] Add video playback speed change via keyboard (without third-party libraries)
+        * [] Make a functional picture in picture (without third-party libraries)
+        * [x] Add video playback speed change via keyboard (without third-party libraries)
 * [ ] Additional tasks:
     * [ ] Work through errors from the API (network error, ...)
     * [ ] Adaptive for the mobile version 

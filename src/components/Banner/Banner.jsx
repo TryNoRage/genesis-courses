@@ -6,7 +6,7 @@ function Banner() {
   return (
     <AppBar position="sticky" id="banner" >
     <Toolbar>
-      <Typography variant="h6" component="div">
+      <Typography variant="h3" component="div">
         Genesis
       </Typography>
     </Toolbar>
@@ -15,3 +15,4 @@ function Banner() {
 }
 
 export default Banner
+

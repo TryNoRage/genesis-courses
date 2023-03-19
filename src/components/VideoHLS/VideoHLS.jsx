@@ -22,6 +22,23 @@ function VideoHLS({ videoLink, previewImage, videoTitle, videoId }) {
         videoRef.currentTime = parseInt(savedProgress);
       }
     }
+    
+    const handleKey = (event) => {
+      switch (event.code) {
+        case "ArrowUp":
+          videoRef.playbackRate = videoRef.playbackRate === 1 ? 1.5 : 2;
+          break;
+        case "ArrowDown":
+          videoRef.playbackRate = videoRef.playbackRate === 1 ? 0.5 : 1;
+          break;
+        default:
+          break;
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+    };
   }, [videoRef, videoLink]);
 
   function handleProgressChange() {
