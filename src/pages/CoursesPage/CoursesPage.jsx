@@ -35,8 +35,9 @@ function CoursesPage() {
       ) : (
         <main>
           {listOfCourses}
+          {console.log(currentPage)}
           <Pagination
-            count={Math.ceil(courses.length / ITEMS_PER_PAGE)}
+            count={3}
             page={currentPage}
             onChange={goToPage}
           />

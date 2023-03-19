@@ -7,8 +7,8 @@ function usePagination(array, itemsPerPage) {
   const endIndex = startIndex + itemsPerPage;
   const visibleItems = array.slice(startIndex, endIndex);
 
-  function goToPage(page) {
-    setCurrentPage(page);
+  function goToPage(event,value) {
+    setCurrentPage(value);
     window.scrollTo(0, 0);
   }
 
