@@ -1,6 +1,5 @@
 function secondsToMinutes(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  return minutes;
+  return Math.floor(seconds / 60);
 }
 
 export default secondsToMinutes;
