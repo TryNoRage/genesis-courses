@@ -8,6 +8,7 @@
 body {
     margin: 0px;
     box-sizing: border-box;
-    background-color: #2B7A78;
+    background: rgb(10,66,23);
+    background: linear-gradient(73deg, rgba(10,66,23,1) 0%, rgba(43,122,120,1) 100%) no-repeat center center fixed; 
     font-family: "Roboto", sans-serif;
 }

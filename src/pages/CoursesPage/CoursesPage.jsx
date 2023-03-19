@@ -5,7 +5,7 @@ import { Pagination } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../customHooks/useFetch";
 import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
-import usePagination from "../../customHooks/paginationHelper";
+import usePagination from "../../customHooks/usePagination";
 
 const ITEMS_PER_PAGE = 10;
 

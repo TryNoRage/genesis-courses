@@ -5,10 +5,16 @@ import useFetch from "../../customHooks/useFetch";
 import CourseAccordion from "../../components/CourseAccordion/CourseAccordion";
 import CourseInformation from "../../components/CourseInformation/CourseInformation";
 import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 function CoursePage() {
   const { id } = useParams();
-  const [course, isLoading] = useFetch(id);
+  const [course, isLoading, isError] = useFetch(id);
+
+
+  if (isError) {
+    return <NotFoundPage />;
+  }
 
   return (
     <>

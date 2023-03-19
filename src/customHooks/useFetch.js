@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { getToken } from "../api/getToken";
 import { getCourse } from "../api/getCourse";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 const useFetch = (idCourse = "") => {
   const [token, setToken] = useState("");
@@ -19,14 +18,12 @@ const useFetch = (idCourse = "") => {
         .then((res) => {
           setData(idCourse ? res : res.courses);
         })
-        .catch((error) => setIsError(error))
+        .catch((error) => setIsError(true))
         .finally(() => setIsLoading(false));
     }
   }, [token]);
 
-
-
-  return [data, isLoading];
+  return [data, isLoading, isError];
 };
 
 export default useFetch;
